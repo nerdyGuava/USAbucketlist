@@ -89,56 +89,58 @@
   }
   
   /* ==========================================================
-   3. RENDER VECTOR MAP (RELIABLE FOR GITHUB PAGES / DIRECT HTML)
+   3. RENDER VECTOR MAP (FIXED VIEWBOX FOR RELIABLE RENDERING)
    ========================================================== */
 function initMap() {
-    const container = document.getElementById('mapContainer');
-    const width = container.clientWidth || 800;
-    const height = container.clientHeight || 500;
+    // Standard US Map aspect ratio canvas
+    const width = 960;
+    const height = 600;
   
     const svg = d3.select("#mapSvg")
-      .attr("viewBox", `0 0 ${width} ${height}`);
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("width", "100%")
+      .attr("height", "100%");
   
     const g = svg.append("g");
   
-    // Albers USA Projection handles placing Alaska & Hawaii automatically
+    // Standard Albers USA Projection scaled for 960x600 canvas
     const projection = d3.geoAlbersUsa()
-      .scale(width * 1.1)
+      .scale(1200)
       .translate([width / 2, height / 2]);
   
     const path = d3.geoPath().projection(projection);
   
-    // Enable Zoom & Pan
+    // Zoom & Pan handler
     const zoom = d3.zoom()
       .scaleExtent([1, 8])
       .on("zoom", (event) => g.attr("transform", event.transform));
   
     svg.call(zoom);
   
-    // Read data directly from the global script loaded in index.html
-    const usData = window.us || window.usAtlas;
+    // Fetch state topography directly from CDN (works on GitHub Pages!)
+    d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
+      .then(us => {
+        const statesGeo = topojson.feature(us, us.objects.states).features;
   
-    if (usData) {
-      const statesGeo = topojson.feature(usData, usData.objects.states).features;
+        g.selectAll("path")
+          .data(statesGeo)
+          .enter()
+          .append("path")
+          .attr("d", path)
+          .attr("class", d => {
+            const stateData = stateMap[d.properties.name];
+            return `state ${stateData && stateData.visited ? 'visited' : ''}`;
+          })
+          .on("click", (event, d) => {
+            const stateData = stateMap[d.properties.name];
+            if (stateData && stateData.visited) {
+              openModal(stateData);
+            }
+          });
+      })
+      .catch(err => console.error("Error loading map topology:", err));
   
-      g.selectAll("path")
-        .data(statesGeo)
-        .enter()
-        .append("path")
-        .attr("d", path)
-        .attr("class", d => {
-          const stateData = stateMap[d.properties.name];
-          return `state ${stateData && stateData.visited ? 'visited' : ''}`;
-        })
-        .on("click", (event, d) => {
-          const stateData = stateMap[d.properties.name];
-          if (stateData && stateData.visited) {
-            openModal(stateData);
-          }
-        });
-    }
-  
-    // Zoom Button Controls
+    // Zoom Controls
     document.getElementById('zoomInBtn').onclick = () => svg.transition().duration(300).call(zoom.scaleBy, 1.3);
     document.getElementById('zoomOutBtn').onclick = () => svg.transition().duration(300).call(zoom.scaleBy, 0.7);
     document.getElementById('resetZoomBtn').onclick = () => svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
