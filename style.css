@@ -1,0 +1,232 @@
+/* --- CSS RESET & VARIABLES --- */
+:root {
+    --bg-color: #f4efea;
+    --card-bg: #ffffff;
+    --text-main: #2c3e50;
+    --accent-visited: #27ae60;
+    --accent-unvisited: #dcdde1;
+    --passport-ink: #1e3799;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.5;
+    padding: 16px;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  /* --- HEADER & PROGRESS BAR --- */
+  header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+  
+  .progress-container {
+    background: #e0e0e0;
+    border-radius: 20px;
+    height: 24px;
+    width: 100%;
+    max-width: 500px;
+    margin: 12px auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .progress-bar {
+    background: var(--accent-visited);
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: #333;
+  }
+  
+  /* --- DASHBOARD LAYOUT --- */
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  /* --- MAP SECTION --- */
+  .map-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .section-subtext {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 12px;
+  }
+  
+  .map-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
+    margin-top: 16px;
+  }
+  
+  .state-chip {
+    background: var(--accent-unvisited);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 10px 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  
+  .state-chip.visited {
+    background: #e8f8f0;
+    border-color: var(--accent-visited);
+    color: var(--accent-visited);
+  }
+  
+  .state-chip:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* --- STAMP & PASSPORT GALLERY --- */
+  .passport-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    border-bottom: 2px dashed #ddd;
+    padding-bottom: 8px;
+  }
+  
+  .stamp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 16px;
+  }
+  
+  .stamp-card {
+    border: 3px double var(--passport-ink);
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+    background: #fdfbf7;
+    transform: rotate(-2deg);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .stamp-card:nth-child(even) {
+    transform: rotate(2deg);
+  }
+  
+  .stamp-card:hover {
+    transform: scale(1.05) rotate(0deg);
+  }
+  
+  .stamp-icon {
+    font-size: 2rem;
+    display: block;
+  }
+  
+  .stamp-name {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--passport-ink);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  
+  .stamp-date {
+    font-size: 0.75rem;
+    color: #666;
+  }
+  
+  /* --- MODAL DIALOG --- */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    z-index: 100;
+  }
+  
+  .modal-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    max-width: 450px;
+    width: 100%;
+    padding: 24px;
+    position: relative;
+    animation: popIn 0.25s ease-out;
+  }
+  
+  @keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* --- DESKTOP ENHANCEMENTS --- */
+  @media (min-width: 768px) {
+    h1 { font-size: 2.4rem; }
+    .dashboard {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .map-section, .passport-section {
+      grid-column: 1 / -1;
+    }
+  }
