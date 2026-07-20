@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our 50-State Journey 🗺️</title>
   
+  <!-- D3.js and TopoJSON CDNs for interactive vector maps -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+
   <!-- Link to CSS external file -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -22,11 +26,22 @@
     </header>
 
     <div class="dashboard">
-      <!-- STATE GRID MAP -->
+      <!-- INTERACTIVE MAP SECTION -->
       <section class="map-section">
         <h2 class="section-title">The Map</h2>
-        <p class="section-subtext">Tap a visited state to view our passport stamp & details!</p>
-        <div class="map-grid" id="mapGrid"></div>
+        <p class="section-subtext">Pinch to zoom or scroll around. Tap a visited state to see our passport stamp!</p>
+        
+        <!-- Zoom Control Buttons -->
+        <div class="map-controls">
+          <button id="zoomInBtn" title="Zoom In">+</button>
+          <button id="zoomOutBtn" title="Zoom Out">−</button>
+          <button id="resetZoomBtn" title="Reset Map">Reset</button>
+        </div>
+
+        <!-- SVG Map Container -->
+        <div class="map-container" id="mapContainer">
+          <svg id="mapSvg"></svg>
+        </div>
       </section>
 
       <!-- PASSPORT STAMPS COLLECTION -->

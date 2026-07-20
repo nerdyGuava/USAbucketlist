@@ -54,10 +54,13 @@
     { code: "WY", name: "Wyoming", visited: false }
   ];
   
-  /* ========================================================
-     2. RENDER FUNCTIONS
-     ======================================================== */
-  const mapGrid = document.getElementById('mapGrid');
+  /* Create a map lookup object for quick access */
+  const stateMap = {};
+  statesData.forEach(s => stateMap[s.name] = s);
+  
+  /* ==========================================================
+     2. INITIALIZE PROGRESS BAR & STAMPS
+     ========================================================== */
   const stampGrid = document.getElementById('stampGrid');
   const progressBar = document.getElementById('progressBar');
   const progressText = document.getElementById('progressText');
@@ -66,26 +69,11 @@
     const visitedCount = statesData.filter(s => s.visited).length;
     const percentage = Math.round((visitedCount / statesData.length) * 100);
   
-    // Update Progress Bar
     progressBar.style.width = percentage + '%';
     progressText.textContent = `${visitedCount} / 50 States Visited (${percentage}%)`;
   
-    // Clear containers
-    mapGrid.innerHTML = '';
     stampGrid.innerHTML = '';
-  
     statesData.forEach(state => {
-      // Render State Button Chip
-      const chip = document.createElement('div');
-      chip.className = `state-chip ${state.visited ? 'visited' : ''}`;
-      chip.innerHTML = `<span>${state.code}</span>`;
-      
-      if (state.visited) {
-        chip.addEventListener('click', () => openModal(state));
-      }
-      mapGrid.appendChild(chip);
-  
-      // Render Stamp Card if Visited
       if (state.visited) {
         const stamp = document.createElement('div');
         stamp.className = 'stamp-card';
@@ -100,9 +88,73 @@
     });
   }
   
-  /* ========================================================
-     3. MODAL LOGIC
-     ======================================================== */
+  /* ==========================================================
+     3. RENDER VECTOR MAP WITH D3 & ZOOM/PAN BEHAVIOR
+     ========================================================== */
+  function initMap() {
+    const container = document.getElementById('mapContainer');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+  
+    const svg = d3.select("#mapSvg")
+      .attr("viewBox", `0 0 ${width} ${height}`);
+  
+    const g = svg.append("g");
+  
+    // Albers USA Projection handles placing Alaska & Hawaii automatically
+    const projection = d3.geoAlbersUsa()
+      .scale(width * 1.1)
+      .translate([width / 2, height / 2]);
+  
+    const path = d3.geoPath().projection(projection);
+  
+    // D3 Zoom & Pan Behavior (works for mouse drag, wheel scroll, and pinch zoom on mobile)
+    const zoom = d3.zoom()
+      .scaleExtent([1, 8])
+      .on("zoom", (event) => {
+        g.attr("transform", event.transform);
+      });
+  
+    svg.call(zoom);
+  
+    // Load US Atlas TopoJSON
+    fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
+      .then(response => response.json())
+      .then(us => {
+        const statesGeo = topojson.feature(us, us.objects.states).features;
+  
+        g.selectAll("path")
+          .data(statesGeo)
+          .enter()
+          .append("path")
+          .attr("d", path)
+          .attr("class", d => {
+            const stateData = stateMap[d.properties.name];
+            return `state ${stateData && stateData.visited ? 'visited' : ''}`;
+          })
+          .on("click", (event, d) => {
+            const stateData = stateMap[d.properties.name];
+            if (stateData && stateData.visited) {
+              openModal(stateData);
+            }
+          });
+      });
+  
+    // Zoom Button Controls
+    document.getElementById('zoomInBtn').addEventListener('click', () => {
+      svg.transition().duration(300).call(zoom.scaleBy, 1.3);
+    });
+    document.getElementById('zoomOutBtn').addEventListener('click', () => {
+      svg.transition().duration(300).call(zoom.scaleBy, 0.7);
+    });
+    document.getElementById('resetZoomBtn').addEventListener('click', () => {
+      svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
+    });
+  }
+  
+  /* ==========================================================
+     4. MODAL LOGIC
+     ========================================================== */
   const modalOverlay = document.getElementById('modalOverlay');
   const modalContent = document.getElementById('modalContent');
   const modalClose = document.getElementById('modalClose');
@@ -126,5 +178,6 @@
     if (e.target === modalOverlay) modalOverlay.style.display = 'none';
   });
   
-  // Run on Load
+  // Run on page ready
   initDashboard();
+  initMap();

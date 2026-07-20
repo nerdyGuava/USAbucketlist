@@ -4,7 +4,8 @@
     --card-bg: #ffffff;
     --text-main: #2c3e50;
     --accent-visited: #27ae60;
-    --accent-unvisited: #dcdde1;
+    --accent-unvisited: #e0e0e0;
+    --stroke-color: #ffffff;
     --passport-ink: #1e3799;
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
@@ -81,6 +82,7 @@
     padding: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     text-align: center;
+    position: relative;
   }
   
   .section-subtext {
@@ -89,36 +91,57 @@
     margin-bottom: 12px;
   }
   
-  .map-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-    gap: 8px;
-    margin-top: 16px;
-  }
-  
-  .state-chip {
-    background: var(--accent-unvisited);
-    border: 2px solid transparent;
-    border-radius: 8px;
-    padding: 10px 4px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  .map-controls {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-bottom: 8px;
   }
   
-  .state-chip.visited {
-    background: #e8f8f0;
-    border-color: var(--accent-visited);
-    color: var(--accent-visited);
+  .map-controls button {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-weight: bold;
+    cursor: pointer;
   }
   
-  .state-chip:hover {
-    transform: translateY(-2px);
+  .map-controls button:hover {
+    background: #e0e0e0;
+  }
+  
+  .map-container {
+    width: 100%;
+    height: 380px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    touch-action: none; /* Enables pinch zoom & multi-touch panning */
+    position: relative;
+    border: 1px solid #eee;
+  }
+  
+  #mapSvg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* SVG State Styles */
+  .state {
+    fill: var(--accent-unvisited);
+    stroke: var(--stroke-color);
+    stroke-width: 1px;
+    transition: fill 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .state.visited {
+    fill: var(--accent-visited);
+    cursor: pointer;
+  }
+  
+  .state.visited:hover {
+    opacity: 0.82;
   }
   
   /* --- STAMP & PASSPORT GALLERY --- */
@@ -131,7 +154,7 @@
   
   .section-title {
     font-size: 1.3rem;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     border-bottom: 2px dashed #ddd;
     padding-bottom: 8px;
   }
@@ -219,14 +242,7 @@
     cursor: pointer;
   }
   
-  /* --- DESKTOP ENHANCEMENTS --- */
   @media (min-width: 768px) {
     h1 { font-size: 2.4rem; }
-    .dashboard {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .map-section, .passport-section {
-      grid-column: 1 / -1;
-    }
+    .map-container { height: 500px; }
   }
