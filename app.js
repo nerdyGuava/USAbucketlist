@@ -89,7 +89,7 @@
   }
   
   /* ==========================================================
-   3. RENDER VECTOR MAP (WORKS LOCALLY WITHOUT FETCH/CORS)
+   3. RENDER VECTOR MAP (RELIABLE FOR GITHUB PAGES / DIRECT HTML)
    ========================================================== */
 function initMap() {
     const container = document.getElementById('mapContainer');
@@ -101,6 +101,7 @@ function initMap() {
   
     const g = svg.append("g");
   
+    // Albers USA Projection handles placing Alaska & Hawaii automatically
     const projection = d3.geoAlbersUsa()
       .scale(width * 1.1)
       .translate([width / 2, height / 2]);
@@ -114,24 +115,11 @@ function initMap() {
   
     svg.call(zoom);
   
-    // Using bundled CDN script instead of fetch to avoid file:// CORS blocks
-    if (typeof usAtlas !== 'undefined') {
-      renderGeoData(usAtlas);
-    } else {
-      // Dynamically load the topojson as a JS script variable
-      const script = document.createElement('script');
-      script.src = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.js";
-      script.onload = () => {
-        // us-atlas script sets window.us
-        const usData = window.us || window.usAtlas;
-        renderGeoData(usData);
-      };
-      document.head.appendChild(script);
-    }
+    // Read data directly from the global script loaded in index.html
+    const usData = window.us || window.usAtlas;
   
-    function renderGeoData(us) {
-      if (!us) return;
-      const statesGeo = topojson.feature(us, us.objects.states).features;
+    if (usData) {
+      const statesGeo = topojson.feature(usData, usData.objects.states).features;
   
       g.selectAll("path")
         .data(statesGeo)
