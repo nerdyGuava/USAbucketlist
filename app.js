@@ -265,6 +265,13 @@ const badgesData = [
         check: (visitedCodes) => ["TX", "LA", "MS", "AL", "FL"].every(c => visitedCodes.includes(c))
       },
       {
+        id: "four_corners",
+        title: "Corner Hopper",
+        icon: "📐",
+        desc: "Visit all Four Corners states!",
+        check: (visitedCodes) => ["AZ", "UT", "CO", "NM"].every(c => visitedCodes.includes(c))
+      },
+      {
         id: "non_contiguous",
         title: "Beyond the Lower 48",
         icon: "✈️",
