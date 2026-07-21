@@ -70,7 +70,7 @@
     const percentage = Math.round((visitedCount / statesData.length) * 100);
   
     progressBar.style.width = percentage + '%';
-    progressText.textContent = `${visitedCount} / 50 States Visited (${percentage}%)`;
+    progressText.textContent = `${visitedCount} / 50 States (${percentage}%)`;
   
     stampGrid.innerHTML = '';
     statesData.forEach(state => {
