@@ -6,7 +6,7 @@
     { code: "AK", name: "Alaska", visited: false },
     { code: "AZ", name: "Arizona", visited: true, date: "Home Base", icon: "🌵", memory: "Desert life with corgis. Stargazing in Flagstaff, road trips up to the Grand Canyon, and surviving the summer heat." },
     { code: "AR", name: "Arkansas", visited: false },
-    { code: "CA", name: "California", visited: true, date: "California", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends" },
+    { code: "CA", name: "California", visited: true, date: "Visited", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends" },
     { code: "CO", name: "Colorado", visited: false },
     { code: "CT", name: "Connecticut", visited: false },
     { code: "DE", name: "Delaware", visited: false },
