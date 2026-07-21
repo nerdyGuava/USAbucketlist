@@ -4,7 +4,7 @@
    const statesData = [
     { code: "AL", name: "Alabama", visited: false },
     { code: "AK", name: "Alaska", visited: false },
-    { code: "AZ", name: "Arizona", visited: true, date: "March 2025", icon: "🌵", memory: "Witnessed a breathtaking sunset over the Grand Canyon south rim!" },
+    { code: "AZ", name: "Arizona", visited: true, date: "Home Base", icon: "🌵", memory: "Desert life with fluffly corgis" },
     { code: "AR", name: "Arkansas", visited: false },
     { code: "CA", name: "California", visited: true, date: "October 2023", icon: "🌉", memory: "Drove down Highway 1 and hiked among the giant coastal Redwoods." },
     { code: "CO", name: "Colorado", visited: false },
