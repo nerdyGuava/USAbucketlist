@@ -10,7 +10,7 @@
     { code: "CO", name: "Colorado", visited: false },
     { code: "CT", name: "Connecticut", visited: false },
     { code: "DE", name: "Delaware", visited: false },
-    { code: "FL", name: "Florida", visited: false },
+    { code: "FL", name: "Florida", visited: true, date: "Honeymoon", icon: "🏰", memory: "Unforgettable honeymoon at Disney World, fueled by iconic Pub Subs!" },
     { code: "GA", name: "Georgia", visited: false },
     { code: "HI", name: "Hawaii", visited: false },
     { code: "ID", name: "Idaho", visited: false },
