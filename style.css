@@ -307,3 +307,73 @@ header p {
   h1 { font-size: 3.5rem; }
   .map-container { height: 520px; }
 }
+
+/* --- TROPHY CASE & BADGES --- */
+.badge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .badge-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #e0e0e0;
+    border-radius: 18px;
+    padding: 16px 10px;
+    text-align: center;
+    position: relative;
+    opacity: 0.45;
+    filter: grayscale(80%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .badge-card.unlocked {
+    opacity: 1;
+    filter: grayscale(0%);
+    background: #ffffff;
+    border: 2px solid #ff758c;
+    box-shadow: 0 8px 20px rgba(255, 0, 127, 0.2);
+  }
+  
+  .badge-card.unlocked:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(255, 0, 127, 0.35);
+  }
+  
+  .badge-icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 6px;
+  }
+  
+  .badge-title {
+    font-family: 'Shrikhand', cursive;
+    font-size: 0.95rem;
+    color: var(--passport-ink);
+    line-height: 1.2;
+  }
+  
+  .badge-desc {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  
+  .badge-status {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #eee;
+    color: #777;
+    text-transform: uppercase;
+  }
+  
+  .badge-card.unlocked .badge-status {
+    background: linear-gradient(90deg, #ff007f, #ff758c);
+    color: #ffffff;
+  }

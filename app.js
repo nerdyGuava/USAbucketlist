@@ -86,6 +86,8 @@
         stampGrid.appendChild(stamp);
       }
     });
+
+    renderBadges();
   }
   
   /* ==========================================================
@@ -187,6 +189,90 @@ function initMap() {
   modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) modalOverlay.style.display = 'none';
   });
+
+  /* ==========================================================
+   BADGE DEFINITIONS & RULES
+   ========================================================== */
+const badgesData = [
+    {
+      id: "first_trip",
+      title: "First Step",
+      icon: "✈️",
+      desc: "Visit your very first state together!",
+      check: (visitedCodes) => visitedCodes.length >= 1
+    },
+    {
+      id: "pacific",
+      title: "Pacific Explorer",
+      icon: "🌊",
+      desc: "Visit CA, OR, and WA!",
+      check: (visitedCodes) => ["CA", "OR", "WA"].every(code => visitedCodes.includes(code))
+    },
+    {
+      id: "four_corners",
+      title: "Desert Magic",
+      icon: "🌵",
+      desc: "Explore AZ, UT, and NM!",
+      check: (visitedCodes) => ["AZ", "UT", "NM"].every(code => visitedCodes.includes(code))
+    },
+    {
+      id: "empire_state",
+      title: "Big Apple Energy",
+      icon: "🗽",
+      desc: "Visit New York!",
+      check: (visitedCodes) => visitedCodes.includes("NY")
+    },
+    {
+      id: "quarter_way",
+      title: "Quarter Century",
+      icon: "🥉",
+      desc: "Reach 12 states visited!",
+      check: (visitedCodes) => visitedCodes.length >= 12
+    },
+    {
+      id: "halfway",
+      title: "Halfway Glam",
+      icon: "👑",
+      desc: "Reach 25 states visited!",
+      check: (visitedCodes) => visitedCodes.length >= 25
+    },
+    {
+      id: "all_50",
+      title: "Ultimate USA Queens",
+      icon: "💖",
+      desc: "Visit all 50 states!",
+      check: (visitedCodes) => visitedCodes.length === 50
+    }
+  ];
+  
+  /* ==========================================================
+     RENDER BADGES IN TROPHY CASE
+     ========================================================== */
+  function renderBadges() {
+    const badgeGrid = document.getElementById('badgeGrid');
+    if (!badgeGrid) return;
+  
+    badgeGrid.innerHTML = '';
+  
+    // Get list of currently visited state codes (e.g. ['CA', 'AZ', 'NY', 'OR'])
+    const visitedCodes = statesData.filter(s => s.visited).map(s => s.code);
+  
+    badgesData.forEach(badge => {
+      const isUnlocked = badge.check(visitedCodes);
+  
+      const badgeCard = document.createElement('div');
+      badgeCard.className = `badge-card ${isUnlocked ? 'unlocked' : ''}`;
+      
+      badgeCard.innerHTML = `
+        <span class="badge-icon">${badge.icon}</span>
+        <div class="badge-title">${badge.title}</div>
+        <div class="badge-desc">${badge.desc}</div>
+        <span class="badge-status">${isUnlocked ? 'Unlocked ✨' : '🔒 Locked'}</span>
+      `;
+  
+      badgeGrid.appendChild(badgeCard);
+    });
+  }
   
   // Run on page ready
   initDashboard();
