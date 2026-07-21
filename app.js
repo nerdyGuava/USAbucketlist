@@ -216,12 +216,54 @@ const badgesData = [
       check: (visitedCodes) => ["AZ", "UT", "NM"].every(code => visitedCodes.includes(code))
     },
     {
-      id: "empire_state",
-      title: "Big Apple Energy",
-      icon: "🗽",
-      desc: "Visit New York!",
-      check: (visitedCodes) => visitedCodes.includes("NY")
-    },
+        id: "new_england",
+        title: "New Englander",
+        icon: "🌲",
+        desc: "Visit all 6 New England states!",
+        check: (visitedCodes) => ["ME", "NH", "VT", "MA", "RI", "CT"].every(c => visitedCodes.includes(c))
+      },
+      {
+        id: "southern_coast",
+        title: "Southern Cross-Country",
+        icon: "☀️",
+        desc: "Go coast-to-coast across the South!",
+        check: (visitedCodes) => ["CA", "AZ", "NM", "TX", "LA", "MS", "AL", "FL"].every(c => visitedCodes.includes(c))
+      },
+      {
+        id: "northern_tier",
+        title: "Northern Tier",
+        icon: "🏔️",
+        desc: "Go coast-to-coast across the North!",
+        check: (visitedCodes) => ["WA", "ID", "MT", "ND", "MN", "WI", "MI", "NY", "VT", "NH", "ME"].every(c => visitedCodes.includes(c))
+      },
+      {
+        id: "east_coast",
+        title: "Atlantic Voyager",
+        icon: "🌊",
+        desc: "Visit all 14 East Coast states!",
+        check: (visitedCodes) => ["ME", "NH", "MA", "RI", "CT", "NY", "NJ", "DE", "MD", "VA", "NC", "SC", "GA", "FL"].every(c => visitedCodes.includes(c))
+      },
+      {
+        id: "route_66",
+        title: "Main Street USA",
+        icon: "🛣️",
+        desc: "Travel the full path of Route 66!",
+        check: (visitedCodes) => ["IL", "MO", "KS", "OK", "TX", "NM", "AZ", "CA"].every(c => visitedCodes.includes(c))
+      },
+      {
+        id: "alien_chaser",
+        title: "Extraterrestrial",
+        icon: "🛸",
+        desc: "Visit top UFO hotspots Nevada and New Mexico!",
+        check: (visitedCodes) => ["NM", "NV"].every(c => visitedCodes.includes(c))
+      },
+      {
+        id: "gulf_coast",
+        title: "Gulf Breeze",
+        icon: "🦐",
+        desc: "Touch all 5 Gulf Coast states!",
+        check: (visitedCodes) => ["TX", "LA", "MS", "AL", "FL"].every(c => visitedCodes.includes(c))
+      },
     {
       id: "quarter_way",
       title: "Quarter Century",
