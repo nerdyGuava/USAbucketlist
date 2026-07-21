@@ -97,9 +97,25 @@ function initMap() {
     const height = 600;
   
     const svg = d3.select("#mapSvg")
-      .attr("viewBox", `0 0 ${width} ${height}`)
-      .attr("width", "100%")
-      .attr("height", "100%");
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("width", "100%")
+        .attr("height", "100%");
+
+    // --- ADD GLAM PINK GRADIENT DEF ---
+    const defs = svg.append("defs");
+    const gradient = defs.append("linearGradient")
+        .attr("id", "pinkGradient")
+        .attr("x1", "0%").attr("y1", "0%")
+        .attr("x2", "100%").attr("y2", "100%");
+    
+    gradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#ff2a85");
+        
+    gradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#ff758c");
+    // ----------------------------------
   
     const g = svg.append("g");
   

@@ -1,248 +1,309 @@
-/* --- CSS RESET & VARIABLES --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Shrikhand&display=swap');
+
+/* --- GIRLY POP & CUNTY COLOR PALETTE --- */
 :root {
-    --bg-color: #f4efea;
-    --card-bg: #ffffff;
-    --text-main: #2c3e50;
-    --accent-visited: #27ae60;
-    --accent-unvisited: #e0e0e0;
-    --stroke-color: #ffffff;
-    --passport-ink: #1e3799;
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  }
+  --bg-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #a1c4fd 100%);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(255, 255, 255, 0.6);
+  --text-main: #2d0036;
+  --text-muted: #8a4b7c;
   
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  --accent-visited: #ff2a85;       /* Hot Glam Pink */
+  --accent-visited-hover: #e0006b;
+  --accent-unvisited: #f3e8f6;     /* Soft Pastel Lavender/Pink */
+  --stroke-color: #ffffff;
   
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    font-family: var(--font-family);
-    line-height: 1.5;
-    padding: 16px;
-  }
-  
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  /* --- HEADER & PROGRESS BAR --- */
-  header {
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  
-  h1 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-  }
-  
-  .progress-container {
-    background: #e0e0e0;
-    border-radius: 20px;
-    height: 24px;
-    width: 100%;
-    max-width: 500px;
-    margin: 12px auto;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .progress-bar {
-    background: var(--accent-visited);
-    height: 100%;
-    width: 0%;
-    transition: width 0.5s ease-in-out;
-  }
-  
-  .progress-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-    font-size: 0.85rem;
-    color: #333;
-  }
-  
-  /* --- DASHBOARD LAYOUT --- */
-  .dashboard {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  
-  /* --- MAP SECTION --- */
-  .map-section {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    position: relative;
-  }
-  
-  .section-subtext {
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 12px;
-  }
-  
-  .map-controls {
-    display: flex;
-    justify-content: flex-end;
-    gap: 6px;
-    margin-bottom: 8px;
-  }
-  
-  .map-controls button {
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 4px 10px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .map-controls button:hover {
-    background: #e0e0e0;
-  }
-  
-  .map-container {
-    width: 100%;
-    height: 380px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    overflow: hidden;
-    touch-action: none; /* Enables pinch zoom & multi-touch panning */
-    position: relative;
-    border: 1px solid #eee;
-  }
-  
-  #mapSvg {
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* SVG State Styles */
-  .state {
-    fill: var(--accent-unvisited);
-    stroke: var(--stroke-color);
-    stroke-width: 1px;
-    transition: fill 0.2s ease, opacity 0.2s ease;
-  }
-  
-  .state.visited {
-    fill: var(--accent-visited);
-    cursor: pointer;
-  }
-  
-  .state.visited:hover {
-    opacity: 0.82;
-  }
-  
-  /* --- STAMP & PASSPORT GALLERY --- */
-  .passport-section {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
-  
-  .section-title {
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-    border-bottom: 2px dashed #ddd;
-    padding-bottom: 8px;
-  }
-  
-  .stamp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 16px;
-  }
-  
-  .stamp-card {
-    border: 3px double var(--passport-ink);
-    border-radius: 8px;
-    padding: 12px 8px;
-    text-align: center;
-    background: #fdfbf7;
-    transform: rotate(-2deg);
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  
-  .stamp-card:nth-child(even) {
-    transform: rotate(2deg);
-  }
-  
-  .stamp-card:hover {
-    transform: scale(1.05) rotate(0deg);
-  }
-  
-  .stamp-icon {
-    font-size: 2rem;
-    display: block;
-  }
-  
-  .stamp-name {
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: var(--passport-ink);
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-  
-  .stamp-date {
-    font-size: 0.75rem;
-    color: #666;
-  }
-  
-  /* --- MODAL DIALOG --- */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    z-index: 100;
-  }
-  
-  .modal-card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    max-width: 450px;
-    width: 100%;
-    padding: 24px;
-    position: relative;
-    animation: popIn 0.25s ease-out;
-  }
-  
-  @keyframes popIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  
-  .modal-close {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  @media (min-width: 768px) {
-    h1 { font-size: 2.4rem; }
-    .map-container { height: 500px; }
-  }
+  --passport-ink: #ff007f;
+  --gold-glow: #ffb703;
+  --shadow-pop: 0 10px 30px rgba(255, 42, 133, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.5;
+  padding: 24px 16px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- HEADER & GLAM TITLE --- */
+header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+  color: #ff006e;
+  text-shadow: 3px 3px 0px #ffffff, 6px 6px 0px rgba(255, 0, 110, 0.2);
+  margin-bottom: 6px;
+}
+
+header p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* --- PROGRESS BAR --- */
+.progress-container {
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  height: 30px;
+  width: 100%;
+  max-width: 520px;
+  margin: 18px auto;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #ff007f, #ff758c, #ffb703);
+  height: 100%;
+  width: 0%;
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.6);
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #4a0033;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+/* --- DASHBOARD & GLASS CARDS --- */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.map-section, .passport-section {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow-pop);
+  backdrop-filter: blur(12px);
+}
+
+.section-title {
+  font-family: 'Shrikhand', cursive;
+  font-size: 1.8rem;
+  color: #d6006e;
+  margin-bottom: 8px;
+  text-align: center;
+  border-bottom: 3px dotted #ffb3d9;
+  padding-bottom: 10px;
+}
+
+.section-subtext {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* --- MAP CANVAS & CONTROLS --- */
+.map-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.map-controls button {
+  background: #ffffff;
+  border: 2px solid #ff758c;
+  color: #ff007f;
+  border-radius: 12px;
+  padding: 6px 14px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 117, 140, 0.2);
+  transition: all 0.2s ease;
+}
+
+.map-controls button:hover {
+  background: #ff007f;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 0, 127, 0.4);
+}
+
+.map-container {
+  width: 100%;
+  height: 420px;
+  background: linear-gradient(180deg, #ffffff 0%, #fff0f6 100%);
+  border-radius: 18px;
+  overflow: hidden;
+  touch-action: none;
+  position: relative;
+  border: 2px solid #ffd6e7;
+  box-shadow: inset 0 0 15px rgba(255, 182, 193, 0.3);
+}
+
+#mapSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* SVG State Colors & Animations */
+.state {
+  fill: var(--accent-unvisited);
+  stroke: var(--stroke-color);
+  stroke-width: 1.5px;
+  transition: fill 0.3s ease, transform 0.2s ease, filter 0.2s ease;
+}
+
+.state.visited {
+  fill: url(#pinkGradient);
+  filter: drop-shadow(0px 2px 4px rgba(255, 0, 127, 0.3));
+  cursor: pointer;
+}
+
+.state.visited:hover {
+  fill: #ff006e;
+  filter: drop-shadow(0px 4px 12px rgba(255, 0, 110, 0.6));
+  opacity: 0.95;
+}
+
+/* --- PASSPORT STAMPS GRID --- */
+.stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.stamp-card {
+  border: 3px dashed #ff007f;
+  border-radius: 16px;
+  padding: 16px 10px;
+  text-align: center;
+  background: #ffffff;
+  transform: rotate(-3deg);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 0, 127, 0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stamp-card:nth-child(even) {
+  transform: rotate(3deg);
+  border-color: #ff758c;
+}
+
+.stamp-card:hover {
+  transform: scale(1.1) rotate(0deg);
+  box-shadow: 0 12px 25px rgba(255, 0, 127, 0.3);
+  border-style: solid;
+}
+
+.stamp-icon {
+  font-size: 2.5rem;
+  display: block;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+}
+
+.stamp-name {
+  font-family: 'Shrikhand', cursive;
+  font-size: 1rem;
+  color: var(--passport-ink);
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+}
+
+.stamp-date {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #b5508c;
+  text-transform: uppercase;
+}
+
+/* --- GLAM MODAL POPUP --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(45, 0, 54, 0.6);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  z-index: 100;
+}
+
+.modal-card {
+  background: #ffffff;
+  border: 3px solid #ff758c;
+  border-radius: 24px;
+  max-width: 440px;
+  width: 100%;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(255, 0, 127, 0.3);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: #fff0f6;
+  border: 2px solid #ff758c;
+  color: #ff007f;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #ff007f;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 3.5rem; }
+  .map-container { height: 520px; }
+}
