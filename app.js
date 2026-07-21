@@ -264,6 +264,13 @@ const badgesData = [
         desc: "Touch all 5 Gulf Coast states!",
         check: (visitedCodes) => ["TX", "LA", "MS", "AL", "FL"].every(c => visitedCodes.includes(c))
       },
+      {
+        id: "non_contiguous",
+        title: "Beyond the Lower 48",
+        icon: "✈️",
+        desc: "Visit Alaska and Hawaii!",
+        check: (visitedCodes) => ["AK", "HI"].every(c => visitedCodes.includes(c))
+      },
     {
       id: "quarter_way",
       title: "Quarter Century",
