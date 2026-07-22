@@ -54,7 +54,7 @@
     { code: "UT", name: "Utah", visited: true, date: "Visited", icon: "🏔️", memory: "Snow tubing in Park City, keeping our freezing corgi cozy in hotel blankets, and braving a crazy snowstorm drive home!" },
     { code: "VT", name: "Vermont", visited: false },
     { code: "VA", name: "Virginia", visited: false },
-    { code: "WA", name: "Washington", visited: true, date: "Visited", icon: "🌲", memory: "Loved Seattle when we didn't have a car, explored pretty Little Norway, and survived an oddly hilarious mugging!" },
+    { code: "WA", name: "Washington", visited: true, date: "Visited", icon: "🌲", memory: "Loved Seattle when we didn't have a car, explored pretty Little Norway, lots of rain and seafood, and survived an oddly hilarious parking scam!" },
     { code: "WV", name: "West Virginia", visited: false },
     { code: "WI", name: "Wisconsin", visited: false },
     { code: "WY", name: "Wyoming", visited: false }
