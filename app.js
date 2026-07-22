@@ -4,7 +4,13 @@
    const statesData = [
     { code: "AL", name: "Alabama", visited: false },
     { code: "AK", name: "Alaska", visited: false },
-    { code: "AZ", name: "Arizona", visited: true, date: "Home Base", icon: "🌵", memory: "Desert life with corgis. Stargazing in Flagstaff, road trips up to the Grand Canyon, and surviving the summer heat." },
+    { code: "AZ", name: "Arizona", visited: true, date: "Home Base", icon: "🌵", memory: "Desert life with corgis. Stargazing in Flagstaff, road trips up to the Grand Canyon, and surviving the summer heat.", images: [
+        "photos/az/adams_family.png",
+        "photos/az/skeet_hoodie.jpg",
+        "photos/az/pumpkin_run.png",
+        "photos/az/stacey_hoodie.png",
+        "photos/az/old_town.png"
+      ] },
     { code: "AR", name: "Arkansas", visited: false },
     { code: "CA", name: "California", visited: true, date: "Visited", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends", images: [
         "photos/az/adams_family.png",
