@@ -6,7 +6,13 @@
     { code: "AK", name: "Alaska", visited: false },
     { code: "AZ", name: "Arizona", visited: true, date: "Home Base", icon: "🌵", memory: "Desert life with corgis. Stargazing in Flagstaff, road trips up to the Grand Canyon, and surviving the summer heat." },
     { code: "AR", name: "Arkansas", visited: false },
-    { code: "CA", name: "California", visited: true, date: "Visited", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends" },
+    { code: "CA", name: "California", visited: true, date: "Visited", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends", images: [
+        "photos/az/adams_family.png",
+        "photos/az/skeet_hoodie.jpg",
+        "photos/az/pumpkin_run.png",
+        "photos/az/stacey_hoodie.png",
+        "photos/az/old_town.png"
+      ] },
     { code: "CO", name: "Colorado", visited: false },
     { code: "CT", name: "Connecticut", visited: false },
     { code: "DE", name: "Delaware", visited: false },
@@ -163,6 +169,31 @@ function initMap() {
     document.getElementById('zoomOutBtn').onclick = () => svg.transition().duration(300).call(zoom.scaleBy, 0.7);
     document.getElementById('resetZoomBtn').onclick = () => svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
   }
+
+  function renderPhotoPreviews(images) {
+    if (!images || images.length === 0) return '';
+  
+    const maxPreviews = 3;
+    const previewList = images.slice(0, maxPreviews);
+    const extraCount = images.length - maxPreviews;
+  
+    let photosHtml = '<div class="photo-preview-row">';
+  
+    previewList.forEach((src, index) => {
+      // If it's the last preview image and there are leftover photos, overlay a tag
+      const isLast = index === maxPreviews - 1 && extraCount > 0;
+      
+      photosHtml += `
+        <div class="photo-thumb-wrapper" onclick="openFullGallery()">
+          <img src="${src}" class="photo-thumb" alt="State photo" />
+          ${isLast ? `<span class="more-overlay">+${extraCount} More</span>` : ''}
+        </div>
+      `;
+    });
+  
+    photosHtml += '</div>';
+    return photosHtml;
+  }
   
   /* ==========================================================
      4. MODAL LOGIC
@@ -172,11 +203,18 @@ function initMap() {
   const modalClose = document.getElementById('modalClose');
   
   function openModal(state) {
+    // 1. ADD THIS LINE: Generate the photo preview HTML string
+    const photoHTML = renderPhotoPreviews(state.images);
+
     modalContent.innerHTML = `
       <div style="text-align: center;">
         <div style="font-size: 3rem; margin-bottom: 8px;">${state.icon || '📌'}</div>
         <h3 style="text-transform: uppercase; letter-spacing: 1px; color: var(--passport-ink);">${state.name} Stamp</h3>
         <p style="font-size: 0.85rem; color: #777; margin-bottom: 16px;">Stamped on: <strong>${state.date}</strong></p>
+        
+        <!-- 2. ADD THIS LINE: Inject the photo previews above memory -->
+        ${photoHTML}
+
         <div style="background: #fdfbf7; border: 1px dashed #ccc; padding: 12px; border-radius: 8px; font-style: italic; margin-bottom: 12px;">
           "${state.memory}"
         </div>
