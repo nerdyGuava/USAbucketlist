@@ -5,20 +5,20 @@
     { code: "AL", name: "Alabama", visited: false },
     { code: "AK", name: "Alaska", visited: false },
     { code: "AZ", name: "Arizona", visited: true, date: "Home Base", icon: "🌵", memory: "Desert life with corgis. Stargazing in Flagstaff, road trips up to the Grand Canyon, and surviving the summer heat.", images: [
-        "photos/az/carsland.png",
-        "photos/az/disney_friends.jpg",
-        "photos/az/kiss.png",
-        "photos/az/sf.png",
-        "photos/az/vader.png"
-      ], stampImg: "photos/az/stamps/carsland.png" },
-    { code: "AR", name: "Arkansas", visited: false },
-    { code: "CA", name: "California", visited: true, date: "Visited", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends", images: [
         "photos/az/adams_family.png",
         "photos/az/skeet_hoodie.jpg",
         "photos/az/pumpkin_run.png",
         "photos/az/stacey_hoodie.png",
         "photos/az/old_town.png"
-      ] },
+      ], stampImg: "photos/az/stamps/stacey_hoodie.png" },
+    { code: "AR", name: "Arkansas", visited: false },
+    { code: "CA", name: "California", visited: true, date: "Visited", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends", images: [
+        "photos/az/carsland.png",
+        "photos/az/disney_friends.jpg",
+        "photos/az/kiss.png",
+        "photos/az/sf.png",
+        "photos/az/vader.png"
+      ], stampImg: "photos/ca/stamps/carsland.png" },
     { code: "CO", name: "Colorado", visited: false },
     { code: "CT", name: "Connecticut", visited: false },
     { code: "DE", name: "Delaware", visited: false },
