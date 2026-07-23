@@ -10,7 +10,7 @@
         "photos/az/pumpkin_run.png",
         "photos/az/stacey_hoodie.png",
         "photos/az/old_town.png"
-      ] },
+      ], stampImg: "photos/az/stamps/stacey_hoodie.png" },
     { code: "AR", name: "Arkansas", visited: false },
     { code: "CA", name: "California", visited: true, date: "Visited", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends", images: [
         "photos/az/adams_family.png",
@@ -100,6 +100,7 @@
     });
 
     renderBadges();
+    renderStampsGallery();
   }
   
   /* ==========================================================
@@ -431,6 +432,36 @@ document.getElementById('nextImgBtn').onclick = () => {
   currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length;
   updateGalleryImage();
 };
+
+/* ==========================================================
+   RENDER STAMPS GALLERY
+   ========================================================== */
+   function renderStampsGallery() {
+    const stampsGrid = document.getElementById('stampsGalleryGrid');
+    if (!stampsGrid) return;
+  
+    stampsGrid.innerHTML = '';
+  
+    statesData.forEach(state => {
+      // Only render states that have a stampImg defined
+      if (state.stampImg) {
+        const stampDiv = document.createElement('div');
+        stampDiv.className = `stamp-item ${state.visited ? 'unlocked' : 'locked'}`;
+        stampDiv.title = `${state.name} Stamp`;
+  
+        stampDiv.innerHTML = `
+          <img src="${state.stampImg}" alt="${state.name} Stamp" />
+        `;
+  
+        // Click to open the state modal
+        stampDiv.addEventListener('click', () => {
+          if (state.visited) openModal(state);
+        });
+  
+        stampsGrid.appendChild(stampDiv);
+      }
+    });
+  }
   
   // Run on page ready
   initDashboard();
