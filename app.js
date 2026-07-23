@@ -443,7 +443,6 @@ document.getElementById('nextImgBtn').onclick = () => {
     stampsGrid.innerHTML = '';
   
     statesData.forEach(state => {
-      // Only render states that have a stampImg defined
       if (state.stampImg) {
         const stampDiv = document.createElement('div');
         stampDiv.className = `stamp-item ${state.visited ? 'unlocked' : 'locked'}`;
@@ -453,15 +452,33 @@ document.getElementById('nextImgBtn').onclick = () => {
           <img src="${state.stampImg}" alt="${state.name} Stamp" />
         `;
   
-        // Click to open the state modal
+        // CLICK ACTION: Opens full-screen stamp preview
         stampDiv.addEventListener('click', () => {
-          if (state.visited) openModal(state);
+          if (state.visited) {
+            openSingleStampLightbox(state.stampImg);
+          }
         });
   
         stampsGrid.appendChild(stampDiv);
       }
     });
   }
+  
+  /* Helper to launch full-screen preview for a stamp */
+  function openSingleStampLightbox(imgSrc) {
+    currentGalleryImages = [imgSrc];
+    currentImageIndex = 0;
+    
+    // Uses your existing gallery lightbox elements
+    const imgElem = document.getElementById('galleryImage');
+    const counterElem = document.getElementById('galleryCounter');
+    
+    if (imgElem) imgElem.src = imgSrc;
+    if (counterElem) counterElem.textContent = "1 / 1";
+    
+    document.getElementById('galleryOverlay').style.display = 'flex';
+  }
+  
   
   // Run on page ready
   initDashboard();
