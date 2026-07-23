@@ -12,7 +12,7 @@
         "photos/az/old_town.png"
       ], stampImg: "photos/az/stamps/stacey_hoodie.png" },
     { code: "AR", name: "Arkansas", visited: false },
-    { code: "CA", name: "California", visited: true, date: "Visited", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends", images: [
+    { code: "CA", name: "California", visited: true, date: "Friends", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends", images: [
         "photos/az/carsland.png",
         "photos/az/disney_friends.jpg",
         "photos/az/kiss.png",
@@ -66,7 +66,7 @@
     { code: "UT", name: "Utah", visited: true, date: "Visited", icon: "🏔️", memory: "Snow tubing in Park City, keeping our freezing corgi cozy in hotel blankets, and braving a crazy snowstorm drive home!" },
     { code: "VT", name: "Vermont", visited: false },
     { code: "VA", name: "Virginia", visited: false },
-    { code: "WA", name: "Washington", visited: true, date: "Visited", icon: "🌲", memory: "Loved Seattle when we didn't have a car, explored pretty Little Norway, lots of rain and seafood, and survived an oddly hilarious parking scam!" },
+    { code: "WA", name: "Washington", visited: true, date: "Jordan's Wedding", icon: "🌲", memory: "Loved Seattle when we didn't have a car, explored pretty Little Norway, lots of rain and seafood, and survived an oddly hilarious parking scam!" },
     { code: "WV", name: "West Virginia", visited: false },
     { code: "WI", name: "Wisconsin", visited: false },
     { code: "WY", name: "Wyoming", visited: false }
