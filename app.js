@@ -186,11 +186,11 @@ function initMap() {
     let photosHtml = '<div class="photo-preview-row">';
   
     previewList.forEach((src, index) => {
-      // If it's the last preview image and there are leftover photos, overlay a tag
       const isLast = index === maxPreviews - 1 && extraCount > 0;
       
+      // Updated onclick to pass the photo index and the state's images array
       photosHtml += `
-        <div class="photo-thumb-wrapper" onclick="openFullGallery()">
+        <div class="photo-thumb-wrapper" onclick="openGallery(${index})">
           <img src="${src}" class="photo-thumb" alt="State photo" />
           ${isLast ? `<span class="more-overlay">+${extraCount} More</span>` : ''}
         </div>
@@ -373,6 +373,64 @@ const badgesData = [
       badgeGrid.appendChild(badgeCard);
     });
   }
+
+  /* ==========================================================
+   GALLERY LIGHTBOX LOGIC
+   ========================================================== */
+let currentGalleryImages = [];
+let currentImageIndex = 0;
+
+function openModal(state) {
+  // Store the active state's image array globally so the gallery can use it
+  currentGalleryImages = state.images || [];
+  
+  const photoHTML = renderPhotoPreviews(state.images);
+
+  modalContent.innerHTML = `
+    <div style="text-align: center;">
+      <div style="font-size: 3rem; margin-bottom: 8px;">${state.icon || '📌'}</div>
+      <h3 style="text-transform: uppercase; letter-spacing: 1px; color: var(--passport-ink);">${state.name} Stamp</h3>
+      <p style="font-size: 0.85rem; color: #777; margin-bottom: 16px;">Stamped on: <strong>${state.date}</strong></p>
+      
+      ${photoHTML}
+
+      <div style="background: #fdfbf7; border: 1px dashed #ccc; padding: 12px; border-radius: 8px; font-style: italic; margin-bottom: 12px;">
+        "${state.memory}"
+      </div>
+    </div>
+  `;
+  modalOverlay.style.display = 'flex';
+}
+
+function openGallery(index = 0) {
+  if (!currentGalleryImages.length) return;
+  currentImageIndex = index;
+  updateGalleryImage();
+  document.getElementById('galleryOverlay').style.display = 'flex';
+}
+
+function updateGalleryImage() {
+  const imgElem = document.getElementById('galleryImage');
+  const counterElem = document.getElementById('galleryCounter');
+  
+  imgElem.src = currentGalleryImages[currentImageIndex];
+  counterElem.textContent = `${currentImageIndex + 1} / ${currentGalleryImages.length}`;
+}
+
+// Controls
+document.getElementById('galleryClose').onclick = () => {
+  document.getElementById('galleryOverlay').style.display = 'none';
+};
+
+document.getElementById('prevImgBtn').onclick = () => {
+  currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+  updateGalleryImage();
+};
+
+document.getElementById('nextImgBtn').onclick = () => {
+  currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length;
+  updateGalleryImage();
+};
   
   // Run on page ready
   initDashboard();
