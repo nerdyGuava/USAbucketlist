@@ -14,7 +14,7 @@
     { code: "AR", name: "Arkansas", visited: false },
     { code: "CA", name: "California", visited: true, date: "Friends", icon: "🌉", memory: "Our First Trip together, Pixar and SF, Disneyland and Corgi Beach Day with friends", images: [
         "photos/ca/carsland.png",
-        "photos/ca/disney_friends.jpg",
+        "photos/ca/disney_friends.png",
         "photos/ca/kiss.png",
         "photos/ca/sf.png",
         "photos/ca/vader.png"
@@ -24,7 +24,7 @@
     { code: "DE", name: "Delaware", visited: false },
     { code: "FL", name: "Florida", visited: true, date: "Honeymoon", icon: "🏰", memory: "Unforgettable honeymoon at Disney World, fueled by iconic Pub Subs!", images: [
         "photos/fl/animal_kingdom.png",
-        "photos/fl/cado_tail.jpg",
+        "photos/fl/cado_tail.png",
         "photos/fl/dinosaur.png",
         "photos/fl/magic_kingdom.png",
         "photos/fl/oops.png"
