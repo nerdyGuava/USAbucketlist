@@ -17,7 +17,7 @@
         "photos/ca/disney_friends.png",
         "photos/ca/kiss.png",
         "photos/ca/sf.png",
-        "photos/ca/vader.png"
+        "photos/ca/vader.JPG"
       ], stampImg: "photos/ca/stamps/carsland.png" },
     { code: "CO", name: "Colorado", visited: false },
     { code: "CT", name: "Connecticut", visited: false },
