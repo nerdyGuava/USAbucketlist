@@ -484,8 +484,38 @@ document.getElementById('nextImgBtn').onclick = () => {
     
     document.getElementById('galleryOverlay').style.display = 'flex';
   }
+
+  /* Preloads and decodes images fully into browser memory */
+function predecodeAllPhotos() {
+    statesData.forEach(state => {
+      // 1. Pre-decode state memory photos
+      if (state.visited && state.images && state.images.length) {
+        state.images.forEach(src => {
+          const img = new Image();
+          img.src = src;
+          // Forces browser to decode pixels in background thread
+          if (img.decode) {
+            // eslint-disable-next-line handle-callback-err
+            img.decode().catch(err => console.log('Pre-decode skipped for:', src));
+          }
+        });
+      }
+  
+      // 2. Pre-decode passport stamp images
+      if (state.stampImg) {
+        const stampImg = new Image();
+        stampImg.src = state.stampImg;
+        if (stampImg.decode) {
+          stampImg.decode().catch(() => {});
+        }
+      }
+    });
+  }
   
   
   // Run on page ready
   initDashboard();
   initMap();
+  
+  // Start preloading/decoding all photos in the background
+  predecodeAllPhotos();
