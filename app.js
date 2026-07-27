@@ -38,14 +38,14 @@
     { code: "KS", name: "Kansas", visited: false },
     { code: "KY", name: "Kentucky", visited: false },
     { code: "LA", name: "Louisiana", visited: true, date: "Honeymoon", icon: "🎷", memory: "Explored New Orleans, devoured incredible po' boys, and survived a spooky haunted bar crawl!", images: [
-        "photos/fl/all_hands_in.png",
-        "photos/fl/derpy.png",
-        "photos/fl/double_fisted.png",
-        "photos/fl/family.png",
-        "photos/fl/friends.png",
-        "photos/fl/new_orleans.png",
-        "photos/fl/stacey_vs_lsu.png"
-      ], stampImg: "photos/fl/stamps/disney.png" },
+        "photos/la/all_hands_in.png",
+        "photos/la/derpy.png",
+        "photos/la/double_fisted.png",
+        "photos/la/family.png",
+        "photos/la/friends.png",
+        "photos/la/new_orleans.png",
+        "photos/la/stacey_vs_lsu.png"
+      ], stampImg: "photos/la/stamps/double_fisted.png" },
     { code: "ME", name: "Maine", visited: false },
     { code: "MD", name: "Maryland", visited: false },
     { code: "MA", name: "Massachusetts", visited: false },
