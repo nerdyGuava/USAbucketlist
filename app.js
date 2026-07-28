@@ -51,7 +51,12 @@
     { code: "MA", name: "Massachusetts", visited: false },
     { code: "MI", name: "Michigan", visited: false },
     { code: "MN", name: "Minnesota", visited: false },
-    { code: "MS", name: "Mississippi", visited: true, date: "Honeymoon", icon: "🚔", memory: "A wild midnight drive accidentally following a high-speed chase, plus food that tasted like dish soap!" },
+    { code: "MS", name: "Mississippi", visited: true, date: "Honeymoon", icon: "🚔", memory: "A wild midnight drive accidentally following a high-speed chase, plus food that tasted like dish soap!", images: [
+        "photos/ms/mississippi_char.png",
+        "photos/ms/stacey.png",
+        "photos/ms/mississippi_food.png",
+        "photos/ms/mississippi_kiss.png"
+      ], stampImg: "photos/ms/stamps/double_fisted.png" },
     { code: "MO", name: "Missouri", visited: false },
     { code: "MT", name: "Montana", visited: false },
     { code: "NE", name: "Nebraska", visited: false },
