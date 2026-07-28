@@ -52,10 +52,10 @@
     { code: "MI", name: "Michigan", visited: false },
     { code: "MN", name: "Minnesota", visited: false },
     { code: "MS", name: "Mississippi", visited: true, date: "Honeymoon", icon: "🚔", memory: "A wild midnight drive accidentally following a high-speed chase, plus food that tasted like dish soap!", images: [
-        "photos/ms/mississippi_char.png",
+        "photos/ms/mississippi_char.PNG",
         "photos/ms/stacey.png",
-        "photos/ms/mississippi_food.png",
-        "photos/ms/mississippi_kiss.png"
+        "photos/ms/mississippi_food.PNG",
+        "photos/ms/mississippi_kiss.PNG"
       ], stampImg: "photos/ms/stamps/fun.png" },
     { code: "MO", name: "Missouri", visited: false },
     { code: "MT", name: "Montana", visited: false },
