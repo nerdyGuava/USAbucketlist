@@ -78,7 +78,7 @@
         "photos/nm/sleepy_corgi.png",
         "photos/nm/stacey.PNG",
         "photos/nm/sunset.png"
-      ], stampImg: "photos/nm/stamps/vegas.png" },
+      ], stampImg: "photos/nm/stamps/ufo.png" },
     { code: "NY", name: "New York", visited: false },
     { code: "NC", name: "North Carolina", visited: false },
     { code: "ND", name: "North Dakota", visited: false },
