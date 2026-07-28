@@ -60,7 +60,12 @@
     { code: "MO", name: "Missouri", visited: false },
     { code: "MT", name: "Montana", visited: false },
     { code: "NE", name: "Nebraska", visited: false },
-    { code: "NV", name: "Nevada", visited: true, date: "Friends", icon: "🎰", memory: "Visited host momma, dined at The STRAT, won Deal or No Deal, dodged a Wyndham scam for free Cirque du Soleil tickets!" },
+    { code: "NV", name: "Nevada", visited: true, date: "Friends", icon: "🎰", memory: "Visited host momma, dined at The STRAT, won Deal or No Deal, dodged a Wyndham scam for free Cirque du Soleil tickets!", images: [
+        "photos/nv/black_pink.png",
+        "photos/nv/sleepy.png",
+        "photos/nv/stacey.PNG",
+        "photos/nv/strat.png"
+      ], stampImg: "photos/nv/stamps/fun.png" },
     { code: "NH", name: "New Hampshire", visited: false },
     { code: "NJ", name: "New Jersey", visited: false },
     { code: "NM", name: "New Mexico", visited: true, date: "Honeymoon", icon: "👽", memory: "Hunted for aliens in Roswell and explored the mind-bending art of Meow Wolf!" },
