@@ -452,14 +452,19 @@ document.getElementById('nextImgBtn').onclick = () => {
   updateGalleryImage();
 };
 
-/* ==========================================================
-   RENDER STAMPS GALLERY
+   /* ==========================================================
+   8. RENDER STAMPS GALLERY (WITH FULL GALLERY CAROUSEL)
    ========================================================== */
-   function renderStampsGallery() {
+function renderStampsGallery() {
     const stampsGrid = document.getElementById('stampsGalleryGrid');
     if (!stampsGrid) return;
   
     stampsGrid.innerHTML = '';
+  
+    // Get list of ALL unlocked stamp image URLs
+    const unlockedStamps = statesData
+      .filter(state => state.visited && state.stampImg)
+      .map(state => state.stampImg);
   
     statesData.forEach(state => {
       if (state.stampImg) {
@@ -471,10 +476,11 @@ document.getElementById('nextImgBtn').onclick = () => {
           <img src="${state.stampImg}" alt="${state.name} Stamp" />
         `;
   
-        // CLICK ACTION: Opens full-screen stamp preview
+        // CLICK ACTION: Pass all unlocked stamps & starting index to openGallery
         stampDiv.addEventListener('click', () => {
           if (state.visited) {
-            openSingleStampLightbox(state.stampImg);
+            const clickedIndex = unlockedStamps.indexOf(state.stampImg);
+            openStampGallery(unlockedStamps, clickedIndex >= 0 ? clickedIndex : 0);
           }
         });
   
@@ -483,21 +489,17 @@ document.getElementById('nextImgBtn').onclick = () => {
     });
   }
   
-  /* Helper to launch full-screen preview for a stamp */
-  function openSingleStampLightbox(imgSrc) {
-    currentGalleryImages = [imgSrc];
-    currentImageIndex = 0;
+  /* Helper to launch full-screen gallery loaded with ALL stamps */
+  function openStampGallery(allStamps, startIndex = 0) {
+    if (!allStamps.length) return;
     
-    // Uses your existing gallery lightbox elements
-    const imgElem = document.getElementById('galleryImage');
-    const counterElem = document.getElementById('galleryCounter');
+    // Set global gallery state to unlocked stamps
+    currentGalleryImages = allStamps;
+    currentImageIndex = startIndex;
     
-    if (imgElem) imgElem.src = imgSrc;
-    if (counterElem) counterElem.textContent = "1 / 1";
-    
+    updateGalleryImage();
     document.getElementById('galleryOverlay').style.display = 'flex';
   }
-
   /* Preloads and decodes images fully into browser memory */
 function predecodeAllPhotos() {
     statesData.forEach(state => {
