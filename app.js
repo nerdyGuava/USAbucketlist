@@ -60,7 +60,7 @@
     { code: "MO", name: "Missouri", visited: false },
     { code: "MT", name: "Montana", visited: false },
     { code: "NE", name: "Nebraska", visited: false },
-    { code: "NV", name: "Nevada", visited: true, date: "Friends", icon: "🎰", memory: "Visited host momma, dined at The STRAT, won Deal or No Deal, dodged a Wyndham scam for free Cirque du Soleil tickets!", images: [
+    { code: "NV", name: "Nevada", visited: true, date: "Friends", icon: "🎰", memory: "Visited host momma, dined at The STRAT, won Deal or No Deal, Black Pink in your area, and dodged a Wyndham scam for free Cirque du Soleil tickets!", images: [
         "photos/nv/black_pink.png",
         "photos/nv/sleepy.png",
         "photos/nv/stacey.PNG",
@@ -68,7 +68,17 @@
       ], stampImg: "photos/nv/stamps/vegas.png" },
     { code: "NH", name: "New Hampshire", visited: false },
     { code: "NJ", name: "New Jersey", visited: false },
-    { code: "NM", name: "New Mexico", visited: true, date: "Honeymoon", icon: "👽", memory: "Hunted for aliens in Roswell and explored the mind-bending art of Meow Wolf!" },
+    { code: "NM", name: "New Mexico", visited: true, date: "Honeymoon", icon: "👽", memory: "Hunted for aliens in Roswell, White Sands sledding, and explored the mind-bending art of Meow Wolf!", images: [
+        "photos/nm/abyss.png",
+        "photos/nm/alien.jpg",
+        "photos/nm/friends.png",
+        "photos/nm/meow_wolf.png",
+        "photos/nm/paw_prints.PNG",
+        "photos/nm/roswell.png",
+        "photos/nm/sleepy_corgi.png",
+        "photos/nm/stacey.PNG",
+        "photos/nm/sunset.png"
+      ], stampImg: "photos/nm/stamps/vegas.png" },
     { code: "NY", name: "New York", visited: false },
     { code: "NC", name: "North Carolina", visited: false },
     { code: "ND", name: "North Dakota", visited: false },
