@@ -56,7 +56,7 @@
         "photos/ms/stacey.png",
         "photos/ms/mississippi_food.png",
         "photos/ms/mississippi_kiss.png"
-      ], stampImg: "photos/ms/stamps/double_fisted.png" },
+      ], stampImg: "photos/ms/stamps/fun.png" },
     { code: "MO", name: "Missouri", visited: false },
     { code: "MT", name: "Montana", visited: false },
     { code: "NE", name: "Nebraska", visited: false },
