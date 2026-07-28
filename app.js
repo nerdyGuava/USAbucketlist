@@ -65,7 +65,7 @@
         "photos/nv/sleepy.png",
         "photos/nv/stacey.PNG",
         "photos/nv/strat.png"
-      ], stampImg: "photos/nv/stamps/fun.png" },
+      ], stampImg: "photos/nv/stamps/vegas.png" },
     { code: "NH", name: "New Hampshire", visited: false },
     { code: "NJ", name: "New Jersey", visited: false },
     { code: "NM", name: "New Mexico", visited: true, date: "Honeymoon", icon: "👽", memory: "Hunted for aliens in Roswell and explored the mind-bending art of Meow Wolf!" },
