@@ -90,7 +90,10 @@
     { code: "SC", name: "South Carolina", visited: false },
     { code: "SD", name: "South Dakota", visited: false },
     { code: "TN", name: "Tennessee", visited: false },
-    { code: "TX", name: "Texas", visited: true, date: "Honeymoon", icon: "🌮", memory: "Why was Van Horn so much fun?!?, Houston was a heart attack trying to drive through but the breakfast tacos were fire!" },
+    { code: "TX", name: "Texas", visited: true, date: "Honeymoon", icon: "🌮", memory: "Why was Van Horn so much fun?!?, Houston was a heart attack trying to drive through but the breakfast tacos were fire!", images: [
+        "photos/tx/vanhorn.png",
+        "photos/tx/icecream.png"
+      ], stampImg: "photos/tx/stamps/tree.png" },
     { code: "UT", name: "Utah", visited: true, date: "Snow Fun", icon: "🏔️", memory: "Snow tubing in Park City, keeping our freezing corgi cozy in hotel blankets, and braving a crazy snowstorm drive home!" },
     { code: "VT", name: "Vermont", visited: false },
     { code: "VA", name: "Virginia", visited: false },
