@@ -94,7 +94,19 @@
         "photos/tx/vanhorn.png",
         "photos/tx/icecream.png"
       ], stampImg: "photos/tx/stamps/tree.png" },
-    { code: "UT", name: "Utah", visited: true, date: "Snow Fun", icon: "🏔️", memory: "Snow tubing in Park City, keeping our freezing corgi cozy in hotel blankets, and braving a crazy snowstorm drive home!" },
+    { code: "UT", name: "Utah", visited: true, date: "Snow Fun", icon: "🏔️", memory: "Snow tubing in Park City, keeping our freezing corgi cozy in hotel blankets, and braving a crazy snowstorm drive home!", images: [
+        "photos/ut/cheeks.png",
+        "photos/ut/coat.png",
+        "photos/ut/cool.PNG",
+        "photos/ut/cute.png",
+        "photos/ut/fam.png",
+        "photos/ut/slay.PNG",
+        "photos/ut/sleepy.png",
+        "photos/ut/snow_car.PNG",
+        "photos/ut/snowball.PNG",
+        "photos/ut/tube_slide.PNG",
+        "photos/ut/tubing.PNG"
+      ], stampImg: "photos/ut/stamps/ufo.png" },
     { code: "VT", name: "Vermont", visited: false },
     { code: "VA", name: "Virginia", visited: false },
     { code: "WA", name: "Washington", visited: true, date: "Jordan's Wedding", icon: "🌲", memory: "Loved Seattle when we didn't have a car, explored pretty Little Norway, lots of rain and seafood, and survived an oddly hilarious parking scam!" },
