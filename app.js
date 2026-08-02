@@ -106,7 +106,7 @@
         "photos/ut/snowball.PNG",
         "photos/ut/tube_slide.PNG",
         "photos/ut/tubing.PNG"
-      ], stampImg: "photos/ut/stamps/ufo.png" },
+      ], stampImg: "photos/ut/stamps/cheeks.png" },
     { code: "VT", name: "Vermont", visited: false },
     { code: "VA", name: "Virginia", visited: false },
     { code: "WA", name: "Washington", visited: true, date: "Jordan's Wedding", icon: "🌲", memory: "Loved Seattle when we didn't have a car, explored pretty Little Norway, lots of rain and seafood, and survived an oddly hilarious parking scam!" },
