@@ -124,7 +124,7 @@
         "photos/wa/ship.png",
         "photos/wa/vibes.png",
         "photos/wa/space.png"
-      ], stampImg: "photos/wa/stamps/cheeks.png" },
+      ], stampImg: "photos/wa/stamps/seattle.png" },
     { code: "WV", name: "West Virginia", visited: false },
     { code: "WI", name: "Wisconsin", visited: false },
     { code: "WY", name: "Wyoming", visited: false }
