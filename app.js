@@ -117,7 +117,7 @@
         "photos/wa/cute.png",
         "photos/wa/lake.png",
         "photos/wa/market.png",
-        "photos/wa/needle.PNG",
+        "photos/wa/needle.png",
         "photos/wa/piggy_back.PNG",
         "photos/wa/piggy_back2.PNG",
         "photos/wa/piggy_back3.PNG",
