@@ -109,7 +109,22 @@
       ], stampImg: "photos/ut/stamps/cheeks.png" },
     { code: "VT", name: "Vermont", visited: false },
     { code: "VA", name: "Virginia", visited: false },
-    { code: "WA", name: "Washington", visited: true, date: "Jordan's Wedding", icon: "🌲", memory: "Loved Seattle when we didn't have a car, explored pretty Little Norway, lots of rain and seafood, and survived an oddly hilarious parking scam!" },
+    { code: "WA", name: "Washington", visited: true, date: "Jordan's Wedding", icon: "🌲", memory: "Jordan's Wedding, Loved Seattle when we didn't have a car, explored pretty Little Norway, lots of rain and seafood, and survived an oddly hilarious parking scam!", images: [
+        "photos/wa/balls.png",
+        "photos/wa/banana.png",
+        "photos/wa/char_bride.PNG",
+        "photos/wa/cute_lake.png",
+        "photos/wa/cute.png",
+        "photos/wa/lake.png",
+        "photos/wa/market.png",
+        "photos/wa/needle.PNG",
+        "photos/wa/piggy_back.PNG",
+        "photos/wa/piggy_back2.PNG",
+        "photos/wa/piggy_back3.PNG",
+        "photos/wa/ship.png",
+        "photos/wa/vibes.png",
+        "photos/wa/space.png"
+      ], stampImg: "photos/wa/stamps/cheeks.png" },
     { code: "WV", name: "West Virginia", visited: false },
     { code: "WI", name: "Wisconsin", visited: false },
     { code: "WY", name: "Wyoming", visited: false }
